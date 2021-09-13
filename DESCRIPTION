@@ -1,5 +1,5 @@
 Package: fca
-Title: What the Package Does (One Line, Title Case)
+Title: Floating Catchment Area (FCA) Methods to calculate Spatial Accessibility
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "First",
