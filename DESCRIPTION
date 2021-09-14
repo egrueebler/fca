@@ -1,12 +1,11 @@
 Package: fca
-Title: Floating Catchment Area (FCA) Methods to calculate Spatial Accessibility
+Title: Floating Catchment Area (FCA) Methods to Calculate Spatial Accessibility
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Etienne",
+           family = "Grueebler",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+           email = "todo")
 Description: What the package does (one paragraph).
 License: GPL (>= 3)
 Encoding: UTF-8
@@ -17,6 +16,6 @@ Suggests:
     covr,
     knitr,
     rmarkdown,
-    testthat (>= 3.0.0)
+    testthat
 Config/testthat/edition: 3
 VignetteBuilder: knitr
