@@ -10,7 +10,8 @@
 coverage](https://codecov.io/gh/egrueebler/fca/branch/feature/package-structure/graph/badge.svg)](https://codecov.io/gh/egrueebler/fca?branch=feature/package-structure)
 <!-- badges: end -->
 
-The goal of fca is to …
+Floating Catchment Area (FCA) methods to calculate spatial
+accessibility.
 
 ## Installation
 
