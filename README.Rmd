@@ -13,14 +13,14 @@ knitr::opts_chunk$set(
 )
 ```
 
-# fca
+# Floating Catchment Area (FCA) Methods to Calculate Spatial Accessibility
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/egrueebler/fca/workflows/R-CMD-check/badge.svg)](https://github.com/egrueebler/fca/actions)
 [![Codecov test coverage](https://codecov.io/gh/egrueebler/fca/branch/feature/package-structure/graph/badge.svg)](https://codecov.io/gh/egrueebler/fca?branch=feature/package-structure)
 <!-- badges: end -->
 
-Floating Catchment Area (FCA) methods to calculate spatial accessibility.
+**Text from DESCRIPTION**
 
 ## Installation
 

@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# fca
+# Floating Catchment Area (FCA) Methods to Calculate Spatial Accessibility
 
 <!-- badges: start -->
 
@@ -10,8 +10,7 @@
 coverage](https://codecov.io/gh/egrueebler/fca/branch/feature/package-structure/graph/badge.svg)](https://codecov.io/gh/egrueebler/fca?branch=feature/package-structure)
 <!-- badges: end -->
 
-Floating Catchment Area (FCA) methods to calculate spatial
-accessibility.
+**Text from DESCRIPTION**
 
 ## Installation
 

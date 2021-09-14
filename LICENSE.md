@@ -552,7 +552,7 @@ to the start of each source file to most effectively state the exclusion of warr
 and each file should have at least the “copyright” line and a pointer to
 where the full notice is found.
 
-    Floating Catchment Area (FCA) methods to calculate spatial accessibility.
+    Floating Catchment Area (FCA) methods to Calculate Spatial Accessibility.
     Copyright (C) 2021 Etienne Grueebler
 
     This program is free software: you can redistribute it and/or modify
