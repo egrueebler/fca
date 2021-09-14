@@ -2,4 +2,5 @@
 
 export(get_2SFCA)
 export(get_3SFCA)
+export(get_MH3SFCA)
 export(get_distance_weights)
