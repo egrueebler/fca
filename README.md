@@ -7,7 +7,7 @@
 
 [![R-CMD-check](https://github.com/egrueebler/fca/workflows/R-CMD-check/badge.svg)](https://github.com/egrueebler/fca/actions)
 [![Codecov test
-coverage](https://codecov.io/gh/egrueebler/fca/branch/feature/package-structure/graph/badge.svg)](https://codecov.io/gh/egrueebler/fca?branch=feature/package-structure)
+coverage](https://codecov.io/gh/egrueebler/fca/branch/main/graph/badge.svg)](https://app.codecov.io/gh/egrueebler/fca/branch/main)
 <!-- badges: end -->
 
 Floating Catchment Area (FCA) methods to Calculate Spatial
