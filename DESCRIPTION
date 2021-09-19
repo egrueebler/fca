@@ -5,12 +5,13 @@ Authors@R:
     c(person(given = "Etienne",
            family = "Grueebler",
            role = c("aut", "cre"),
-           email = "todo@something.ch"),
+           email = "package@etienne.app"),
       person(given = "Merlin",
              family = "Unterfinger",
              role = "ctb",
              comment = c(ORCID = "0000-0003-2020-2366")))
-Description: What the package does (one paragraph).
+Description: This package can perform different floating catchment area methods to calculate a spatial accessibility index for demand point data.
+Additionally, for preprocessing the used distance matrix can be normalized using the common functions (gaussian, gravity, exponential or logistic distance function).
 License: GPL (>= 3)
 URL: https://egrueebler.github.io/fca/, https://github.com/egrueebler/fca/
 BugReports: https://github.com/egrueebler/fca/issues/
