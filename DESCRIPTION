@@ -2,12 +2,18 @@ Package: fca
 Title: Floating Catchment Area (FCA) Methods to Calculate Spatial Accessibility
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "Etienne",
+    c(person(given = "Etienne",
            family = "Grueebler",
            role = c("aut", "cre"),
-           email = "todo@something.ch")
-Description: What the package does (one paragraph).
+           email = "package@etienne.app"),
+      person(given = "Merlin",
+             family = "Unterfinger",
+             role = "ctb",
+             comment = c(ORCID = "0000-0003-2020-2366")))
+Description: Perform various floating catchment area methods to calculate a spatial accessibility index (SPAI) for demand point data. The distance matrix used for weighting is normalized in a preprocessing step using common functions (gaussian, gravity, exponential or logistic).
 License: GPL (>= 3)
+URL: https://egrueebler.github.io/fca/, https://github.com/egrueebler/fca/
+BugReports: https://github.com/egrueebler/fca/issues/
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
