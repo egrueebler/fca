@@ -9,8 +9,8 @@
 #' @export
 #'
 #' @examples
-#' distance_weights(matrix(10), 10, "gaussian")
-distance_weights <- function(D, d_max, imp_function, function_d_max = 0.01) {
+#' dist_normalize(matrix(10), 10, "gaussian")
+dist_normalize <- function(D, d_max, imp_function, function_d_max = 0.01) {
   if (imp_function == "gaussian") {
     D[is.na(D)] <- 0
     b <- -(d_max^2) / (log(function_d_max))

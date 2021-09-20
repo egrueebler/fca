@@ -10,8 +10,7 @@ Authors@R:
              family = "Unterfinger",
              role = "ctb",
              comment = c(ORCID = "0000-0003-2020-2366")))
-Description: This package can perform different floating catchment area methods to calculate a spatial accessibility index for demand point data.
-Additionally, for preprocessing the used distance matrix can be normalized using the common functions (gaussian, gravity, exponential or logistic distance function).
+Description: Perform various floating catchment area methods to calculate a spatial accessibility index (SPAI) for demand point data. The distance matrix used for weighting is normalized in a preprocessing step using common functions (gaussian, gravity, exponential or logistic).
 License: GPL (>= 3)
 URL: https://egrueebler.github.io/fca/, https://github.com/egrueebler/fca/
 BugReports: https://github.com/egrueebler/fca/issues/
