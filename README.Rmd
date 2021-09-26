@@ -91,7 +91,7 @@ sup <- sup[order(sup$dest_id), ]
 Apply FCA method on formatted input, get SPAI for each origin location (`p`):
 
 ```{r fca}
-(spai <- spai_3sfca(p, s, D))
+(spai <- spai_3sfca(p, s, W))
 ```
 
 ## References
