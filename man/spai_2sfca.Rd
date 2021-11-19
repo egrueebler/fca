@@ -4,14 +4,14 @@
 \alias{spai_2sfca}
 \title{Two-Step Floating Catchment Area method}
 \usage{
-spai_2sfca(p, s, D, step = 2)
+spai_2sfca(p, s, W, step = 2)
 }
 \arguments{
 \item{p}{numeric vector, number of population at origin locations}
 
 \item{s}{numeric vector, capacity of services at supply locations}
 
-\item{D}{numeric matrix, distance or time matrix}
+\item{W}{numeric matrix, distance or time matrix}
 
 \item{step}{numeric, number of the steps of the method to perform}
 }
@@ -24,6 +24,6 @@ Two-Step Floating Catchment Area method
 \examples{
 p <- 1:4
 s <- 1:6
-D <- matrix(1:24, ncol = 4, nrow = 6)
-spai <- spai_2sfca(p, s, D, step = 2)
+W <- matrix(1:24, ncol = 4, nrow = 6)
+spai <- spai_2sfca(p, s, W, step = 2)
 }

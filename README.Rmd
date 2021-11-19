@@ -91,10 +91,11 @@ sup <- sup[order(sup$dest_id), ]
 Apply FCA method on formatted input, get SPAI for each origin location (`p`):
 
 ```{r fca}
-(spai <- spai_3sfca(p, s, D))
+(spai <- spai_3sfca(p, s, W))
 ```
 
 ## References
 
+* [Grüebler E. (2021). Geospatial Analysis of Access to Healthcare: Child Development Needs and Available Care in the Canton of Zurich.](https://lean-gate.geo.uzh.ch/prod/typo3conf/ext/qfq/Classes/Api/download.php/mastersThesis/833)
 * [Bauer, J., & Groneberg, D. A. (2016). Measuring Spatial Accessibility of Health Care Providers – Introduction of a Variable Distance Decay Function within the Floating Catchment Area (FCA) Method.](https://doi.org/10.1371/journal.pone.0159148)
 * [Joerg, R., Lenz, N., Wetz, S., & Widmer, M. (2019). Ein Modell zur Analyse der Versorgungsdichte. Herleitung eines Index zur räumlichen Zugänglichkeit mithilfe von GIS und Fallstudie zur ambulanten Grundversorgung in der Schweiz.](https://www.obsan.admin.ch/de/publikationen/ein-modell-zur-analyse-der-versorgungsdichte)
