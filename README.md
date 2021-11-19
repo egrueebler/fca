@@ -31,8 +31,7 @@ And the development version from
 [GitHub](https://github.com/egrueebler/fca) with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("egrueebler/fca")
+remotes::install_github("egrueebler/fca")
 ```
 
 ## Example
@@ -43,6 +42,8 @@ demand point data using FCA methods.
 Create an example population, supply and distances:
 
 ``` r
+set.seed(123)
+
 # Population df with column for size
 pop <- data.frame(
   orig_id = letters[1:10],
@@ -62,14 +63,14 @@ D <- matrix(
   dimnames = list(c(1:3), c(letters[1:10]))
 )
 D
-#>           a         b         c          d         e         f        g
-#> 1 14.256870 24.539225 21.995434 0.07651648  2.581566  2.119197 15.06574
-#> 2 12.165218  1.447999 14.762176 4.71541270 17.294205  4.023251 25.80041
-#> 3  8.745498  8.973547  2.273963 5.62233256 22.478755 20.064531 10.22997
-#>          h         i         j
-#> 1 17.75747  9.560868 24.708153
-#> 2 11.25690 12.808433  7.063808
-#> 3 27.35431 24.915099 11.505748
+#>           a        b        c        d        e         f         g         h
+#> 1  8.627326 23.64915 12.26931 26.49052 28.21402  1.366695 15.843165 26.772571
+#> 2 28.705000 13.60002 20.32712 17.17900  3.08774 26.994749  7.382632  1.261786
+#> 3 26.686179 20.78410 19.21520 29.82809 19.67117 21.255914 16.321981 17.824261
+#>           i         j
+#> 1 16.543050 13.698442
+#> 2  9.837622 28.635109
+#> 3  8.674792  4.413409
 ```
 
 Normalize distance matrix with gaussian function, apply a threshold of
@@ -105,17 +106,17 @@ Apply FCA method on formatted input, get SPAI for each origin location
 
 ``` r
 (spai <- spai_3sfca(p, s, W))
-#>       step3
-#> a 0.8010988
-#> b 0.6815086
-#> c 2.6249922
-#> d 1.4790149
-#> e 1.6935884
-#> f 1.1422556
-#> g 0.7571222
-#> h 0.1059280
-#> i 0.4833888
-#> j 0.3801117
+#>        step3
+#> a 3.97260949
+#> b 0.03678999
+#> c 1.46747735
+#> d 0.01079342
+#> e 0.28782748
+#> f 9.11410451
+#> g 0.19596873
+#> h 0.31194607
+#> i 0.37539987
+#> j 1.10349481
 ```
 
 ## References

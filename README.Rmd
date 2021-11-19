@@ -35,8 +35,7 @@ install.packages("fca")
 And the development version from [GitHub](https://github.com/egrueebler/fca) with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("egrueebler/fca")
+remotes::install_github("egrueebler/fca")
 ```
 
 ## Example
@@ -46,6 +45,8 @@ This is a basic example which shows you how to calculate a SPAI for demand point
 Create an example population, supply and distances:
 
 ```{r example}
+set.seed(123)
+
 # Population df with column for size
 pop <- data.frame(
   orig_id = letters[1:10],
