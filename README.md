@@ -62,14 +62,14 @@ D <- matrix(
   dimnames = list(c(1:3), c(letters[1:10]))
 )
 D
-#>          a          b         c         d         e         f         g
-#> 1 24.50709  2.5985183  5.805449  2.573692  3.801045 25.776507 16.666151
-#> 2 10.32657  0.6767829 17.856201 13.334968 21.168125  7.769703 16.007449
-#> 3 26.04822 11.2882469 11.841769 28.765592  2.655921 28.922143  1.935188
-#>           h         i         j
-#> 1  9.307678  2.783642 15.537958
-#> 2 17.736806 13.659028  1.506623
-#> 3 18.099287 26.054608  3.845696
+#>          a        b         c         d        e          f        g         h
+#> 1 25.74653  9.71532 27.971117 10.631694 26.55025  6.7708967 24.73130 27.660026
+#> 2 29.30724 19.71373  9.100438  1.557964 26.08831  0.4669214  4.59481 26.843519
+#> 3 11.17288 19.80053 12.981120 18.323015 15.66079 22.6998866 26.11951  4.775688
+#>          i         j
+#> 1 29.87636 26.909644
+#> 2 23.84058  1.085789
+#> 3 12.18657 22.582598
 ```
 
 Normalize distance matrix with gaussian function, apply a threshold of
@@ -106,20 +106,23 @@ Apply FCA method on formatted input, get SPAI for each origin location
 ``` r
 (spai <- spai_3sfca(p, s, W))
 #>       step3
-#> a 0.1453296
-#> b 1.1132653
-#> c 1.1440038
-#> d 1.7655222
-#> e 1.3310414
-#> f 0.2484718
-#> g 0.8387302
-#> h 0.7045060
-#> i 1.7590697
-#> j 0.6176804
+#> a 0.8409322
+#> b 3.9524345
+#> c 0.2197445
+#> d 0.9487611
+#> e 0.2082522
+#> f 2.9145447
+#> g 0.2269095
+#> h 2.7267004
+#> i 0.6365243
+#> j 0.2850320
 ```
 
 ## References
 
+-   [Grüebler E. (2021). Geospatial Analysis of Access to Healthcare:
+    Child Development Needs and Available Care in the Canton of
+    Zurich.](https://lean-gate.geo.uzh.ch/prod/typo3conf/ext/qfq/Classes/Api/download.php/mastersThesis/833)
 -   [Bauer, J., & Groneberg, D. A. (2016). Measuring Spatial
     Accessibility of Health Care Providers – Introduction of a Variable
     Distance Decay Function within the Floating Catchment Area (FCA)
