@@ -3,7 +3,7 @@
 #' @param D numeric matrix, distance or time values
 #' @param d_max numeric, threshold for max distance
 #' @param imp_function character, type of distance weights method
-#' @param function_d_max numeric, result for function(d_max)
+#' @param function_d_max numeric, condition for the result of the function(d_max) used to calculate beta (default = 0.01, is considered optimal for the Gaussian function)
 #'
 #' @return matrix, normalized distance or time values
 #' @export
