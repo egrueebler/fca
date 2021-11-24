@@ -9,7 +9,10 @@ Authors@R:
       person(given = "Merlin",
              family = "Unterfinger",
              role = "aut",
-             comment = c(ORCID = "0000-0003-2020-2366")))
+             comment = c(ORCID = "0000-0003-2020-2366")),
+      person(given = "Reto",
+             family = "Joerg",
+             role = "ctb"))
 Description: Perform various floating catchment area methods to calculate a
     spatial accessibility index (SPAI) for demand point data. The distance
     matrix used for weighting is normalized in a preprocessing step using
