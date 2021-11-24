@@ -1,3 +1,8 @@
+# fca 0.1.0.9000
+
+* Improve test coverage.
+* Bugfix: Avoid attempt to apply non-function in `dist_normalize(..., imp_function="logistic")`.
+
 # fca 0.1.0
 
 * Added a `NEWS.md` file to track changes to the package.
