@@ -13,7 +13,7 @@ dist_normalize(D, d_max, imp_function, function_d_max = 0.01)
 
 \item{imp_function}{character, type of distance weights method}
 
-\item{function_d_max}{numeric, result for function(d_max)}
+\item{function_d_max}{numeric, condition for the result of the function(d_max) used to calculate beta (default = 0.01, is considered optimal for the Gaussian function)}
 }
 \value{
 matrix, normalized distance or time values
