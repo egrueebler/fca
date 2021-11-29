@@ -4,3 +4,6 @@
 * First release of the **fca** package on CRAN.
 * Perform various floating catchment area methods to calculate a spatial accessibility index (SPAI) for demand point data.
 * The distance matrix used for weighting is normalized in a preprocessing step using common functions (gaussian, gravity, exponential or logistic).
+* Improve test coverage.
+* Bugfix: Avoid attempt to apply non-function in `dist_normalize(..., imp_function="logistic")`.
+* CRAN Feedback: Adjust moved URLs in `README.Rmd` and `getting-started.Rmd` vignette.

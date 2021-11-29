@@ -23,7 +23,7 @@ dist_normalize <- function(D, d_max, imp_function, function_d_max = 0.01) {
     W <- exp(-b * D)
   } else if (imp_function == "logistic") {
     b <- -log((1 / function_d_max) - 1) / d_max - mean(D)
-    W <- 1 / 1(1 + exp(-b * (D - mean(D))))
+    W <- 1 / 1 * (1 + exp(-b * (D - mean(D))))
   } else {
     stop("Invalid `imp_function` value")
   }
