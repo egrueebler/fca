@@ -5,6 +5,12 @@
 
 <!-- badges: start -->
 
+[![CRAN
+version](https://www.r-pkg.org/badges/version/fca)](https://CRAN.R-project.org/package=fca)
+[![CRAN
+checks](https://cranchecks.info/badges/worst/fca)](https://cran.r-project.org/web/checks/check_results_fca.html)
+[![CRAN
+downloads](https://cranlogs.r-pkg.org/badges/last-month/fca?color=brightgreen)](https://CRAN.R-project.org/package=fca)
 [![R-CMD-check](https://github.com/egrueebler/fca/workflows/R-CMD-check/badge.svg)](https://github.com/egrueebler/fca/actions)
 [![Codecov test
 coverage](https://codecov.io/gh/egrueebler/fca/branch/main/graph/badge.svg)](https://app.codecov.io/gh/egrueebler/fca/branch/main)
@@ -21,7 +27,7 @@ functions (gaussian, gravity, exponential or logistic).
 ## Installation
 
 You can install the released version of fca from
-[CRAN](https://CRAN.R-project.org) with:
+[CRAN](https://CRAN.R-project.org/package=fca) with:
 
 ``` r
 install.packages("fca")
