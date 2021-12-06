@@ -22,6 +22,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -34,18 +36,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">fca</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
@@ -57,7 +53,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="articles/getting-started.html">getting-started</a>
+      <a href="articles/getting-started.html">Getting started</a>
     </li>
   </ul>
 </li>
@@ -67,7 +63,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/egrueebler/fca/">
+  <a href="https://github.com/egrueebler/fca/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -84,60 +80,61 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="floating-catchment-area-fca-methods" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#floating-catchment-area-fca-methods" class="anchor"></a>Floating Catchment Area (FCA) Methods</h1></div>
+<div class="section level1">
+<div class="page-header"><h1 id="floating-catchment-area-fca-methods">Floating Catchment Area (FCA) Methods<a class="anchor" aria-label="anchor" href="#floating-catchment-area-fca-methods"></a>
+</h1></div>
 <!-- badges: start -->
 
 <p>Floating Catchment Area (FCA) methods to Calculate Spatial Accessibility.</p>
 <p>Perform various floating catchment area methods to calculate a spatial accessibility index (SPAI) for demand point data. The distance matrix used for weighting is normalized in a preprocessing step using common functions (gaussian, gravity, exponential or logistic).</p>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the released version of fca from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>You can install the released version of fca from <a href="https://CRAN.R-project.org/package=fca" class="external-link">CRAN</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"fca"</span><span class="op">)</span></code></pre></div>
-<p>And the development version from <a href="https://github.com/egrueebler/fca">GitHub</a> with:</p>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"fca"</span><span class="op">)</span></code></pre></div>
+<p>And the development version from <a href="https://github.com/egrueebler/fca" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"egrueebler/fca"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"egrueebler/fca"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="example" class="section level2">
-<h2 class="hasAnchor">
-<a href="#example" class="anchor"></a>Example</h2>
+<div class="section level2">
+<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+</h2>
 <p>This is a basic example which shows you how to calculate a SPAI for demand point data using FCA methods.</p>
 <p>Create an example population, supply and distances:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Population df with column for size</span>
-<span class="va">pop</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span>
+
+<span class="co"># Population df with column for size</span>
+<span class="va">pop</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>
   orig_id <span class="op">=</span> <span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span>,
-  size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">200</span>, <span class="fl">50</span>, <span class="fl">100</span>, <span class="fl">500</span>, <span class="fl">50</span>, <span class="fl">100</span>, <span class="fl">100</span>, <span class="fl">50</span>, <span class="fl">500</span><span class="op">)</span>
+  size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">200</span>, <span class="fl">50</span>, <span class="fl">100</span>, <span class="fl">500</span>, <span class="fl">50</span>, <span class="fl">100</span>, <span class="fl">100</span>, <span class="fl">50</span>, <span class="fl">500</span><span class="op">)</span>
 <span class="op">)</span>
 
 <span class="co"># Supply df with column for capacity</span>
-<span class="va">sup</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
-  dest_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>,
-  capacity <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="fl">200</span>, <span class="fl">500</span><span class="op">)</span>
+<span class="va">sup</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>
+  dest_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>,
+  capacity <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="fl">200</span>, <span class="fl">500</span><span class="op">)</span>
 <span class="op">)</span>
 
 <span class="co"># Distance matrix with travel times from 0 to 30</span>
-<span class="va">D</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span>
-  <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="fl">30</span>, min <span class="op">=</span> <span class="fl">0</span>, max <span class="op">=</span> <span class="fl">30</span><span class="op">)</span>,
+<span class="va">D</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span>
+  <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="fl">30</span>, min <span class="op">=</span> <span class="fl">0</span>, max <span class="op">=</span> <span class="fl">30</span><span class="op">)</span>,
   ncol <span class="op">=</span> <span class="fl">10</span>, nrow <span class="op">=</span> <span class="fl">3</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span>,
-  dimnames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span><span class="op">)</span><span class="op">)</span>
+  dimnames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span><span class="op">)</span><span class="op">)</span>
 <span class="op">)</span>
 <span class="va">D</span>
-<span class="co">#&gt;          a          b         c         d         e         f         g</span>
-<span class="co">#&gt; 1 24.50709  2.5985183  5.805449  2.573692  3.801045 25.776507 16.666151</span>
-<span class="co">#&gt; 2 10.32657  0.6767829 17.856201 13.334968 21.168125  7.769703 16.007449</span>
-<span class="co">#&gt; 3 26.04822 11.2882469 11.841769 28.765592  2.655921 28.922143  1.935188</span>
-<span class="co">#&gt;           h         i         j</span>
-<span class="co">#&gt; 1  9.307678  2.783642 15.537958</span>
-<span class="co">#&gt; 2 17.736806 13.659028  1.506623</span>
-<span class="co">#&gt; 3 18.099287 26.054608  3.845696</span></code></pre></div>
+<span class="co">#&gt;           a        b        c        d        e         f         g         h</span>
+<span class="co">#&gt; 1  8.627326 23.64915 12.26931 26.49052 28.21402  1.366695 15.843165 26.772571</span>
+<span class="co">#&gt; 2 28.705000 13.60002 20.32712 17.17900  3.08774 26.994749  7.382632  1.261786</span>
+<span class="co">#&gt; 3 26.686179 20.78410 19.21520 29.82809 19.67117 21.255914 16.321981 17.824261</span>
+<span class="co">#&gt;           i         j</span>
+<span class="co">#&gt; 1 16.543050 13.698442</span>
+<span class="co">#&gt; 2  9.837622 28.635109</span>
+<span class="co">#&gt; 3  8.674792  4.413409</span></code></pre></div>
 <p>Normalize distance matrix with gaussian function, apply a threshold of 20 minutes (to compute beta for the function) and formatting input data as named vectors for the FCA method (match IDs of distance weight matrix with demand and supply data).</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://egrueebler.github.io/fca/">fca</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://egrueebler.github.io/fca/" class="external-link">fca</a></span><span class="op">)</span>
 
 <span class="co"># Normalize distances</span>
 <span class="va">W</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/dist_normalize.html">dist_normalize</a></span><span class="op">(</span>
@@ -147,37 +144,38 @@
 <span class="op">)</span>
 
 <span class="co"># Ensure order of ids</span>
-<span class="va">pop</span> <span class="op">&lt;-</span> <span class="va">pop</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">pop</span><span class="op">$</span><span class="va">orig_id</span><span class="op">)</span>, <span class="op">]</span>
-<span class="va">sup</span> <span class="op">&lt;-</span> <span class="va">sup</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">sup</span><span class="op">$</span><span class="va">dest_id</span><span class="op">)</span>, <span class="op">]</span>
+<span class="va">pop</span> <span class="op">&lt;-</span> <span class="va">pop</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html" class="external-link">order</a></span><span class="op">(</span><span class="va">pop</span><span class="op">$</span><span class="va">orig_id</span><span class="op">)</span>, <span class="op">]</span>
+<span class="va">sup</span> <span class="op">&lt;-</span> <span class="va">sup</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html" class="external-link">order</a></span><span class="op">(</span><span class="va">sup</span><span class="op">$</span><span class="va">dest_id</span><span class="op">)</span>, <span class="op">]</span>
 
 <span class="co"># Named vectors</span>
-<span class="op">(</span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/setNames.html">setNames</a></span><span class="op">(</span><span class="va">pop</span><span class="op">$</span><span class="va">size</span>, <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">pop</span><span class="op">$</span><span class="va">orig_id</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="op">(</span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/setNames.html" class="external-link">setNames</a></span><span class="op">(</span><span class="va">pop</span><span class="op">$</span><span class="va">size</span>, <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="va">pop</span><span class="op">$</span><span class="va">orig_id</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt;   a   b   c   d   e   f   g   h   i   j </span>
 <span class="co">#&gt; 100 200  50 100 500  50 100 100  50 500</span>
-<span class="op">(</span><span class="va">s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/setNames.html">setNames</a></span><span class="op">(</span><span class="va">sup</span><span class="op">$</span><span class="va">capacity</span>, <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">sup</span><span class="op">$</span><span class="va">dest_id</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="op">(</span><span class="va">s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/setNames.html" class="external-link">setNames</a></span><span class="op">(</span><span class="va">sup</span><span class="op">$</span><span class="va">capacity</span>, <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="va">sup</span><span class="op">$</span><span class="va">dest_id</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt;    1    2    3 </span>
 <span class="co">#&gt; 1000  200  500</span></code></pre></div>
 <p>Apply FCA method on formatted input, get SPAI for each origin location (<code>p</code>):</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="op">(</span><span class="va">spai</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/spai_3sfca.html">spai_3sfca</a></span><span class="op">(</span><span class="va">p</span>, <span class="va">s</span>, <span class="va">W</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt;       step3</span>
-<span class="co">#&gt; a 0.1453296</span>
-<span class="co">#&gt; b 1.1132653</span>
-<span class="co">#&gt; c 1.1440038</span>
-<span class="co">#&gt; d 1.7655222</span>
-<span class="co">#&gt; e 1.3310414</span>
-<span class="co">#&gt; f 0.2484718</span>
-<span class="co">#&gt; g 0.8387302</span>
-<span class="co">#&gt; h 0.7045060</span>
-<span class="co">#&gt; i 1.7590697</span>
-<span class="co">#&gt; j 0.6176804</span></code></pre></div>
+<span class="co">#&gt;        step3</span>
+<span class="co">#&gt; a 3.97260949</span>
+<span class="co">#&gt; b 0.03678999</span>
+<span class="co">#&gt; c 1.46747735</span>
+<span class="co">#&gt; d 0.01079342</span>
+<span class="co">#&gt; e 0.28782748</span>
+<span class="co">#&gt; f 9.11410451</span>
+<span class="co">#&gt; g 0.19596873</span>
+<span class="co">#&gt; h 0.31194607</span>
+<span class="co">#&gt; i 0.37539987</span>
+<span class="co">#&gt; j 1.10349481</span></code></pre></div>
 </div>
-<div id="references" class="section level2">
-<h2 class="hasAnchor">
-<a href="#references" class="anchor"></a>References</h2>
+<div class="section level2">
+<h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h2>
 <ul>
-<li><a href="https://doi.org/10.1371/journal.pone.0159148">Bauer, J., &amp; Groneberg, D. A. (2016). Measuring Spatial Accessibility of Health Care Providers – Introduction of a Variable Distance Decay Function within the Floating Catchment Area (FCA) Method.</a></li>
-<li><a href="https://www.obsan.admin.ch/de/publikationen/ein-modell-zur-analyse-der-versorgungsdichte">Joerg, R., Lenz, N., Wetz, S., &amp; Widmer, M. (2019). Ein Modell zur Analyse der Versorgungsdichte. Herleitung eines Index zur räumlichen Zugänglichkeit mithilfe von GIS und Fallstudie zur ambulanten Grundversorgung in der Schweiz.</a></li>
+<li><a href="https://lean-gate.geo.uzh.ch/prod/typo3conf/ext/qfq/Classes/Api/download.php/mastersThesis/833" class="external-link">Grüebler E. (2021). Geospatial Analysis of Access to Healthcare: Child Development Needs and Available Care in the Canton of Zurich.</a></li>
+<li><a href="https://doi.org/10.1371/journal.pone.0159148" class="external-link">Bauer, J., &amp; Groneberg, D. A. (2016). Measuring Spatial Accessibility of Health Care Providers – Introduction of a Variable Distance Decay Function within the Floating Catchment Area (FCA) Method.</a></li>
+<li><a href="https://www.obsan.admin.ch/de/publikationen/2019-ein-modell-zur-analyse-der-versorgungsdichte" class="external-link">Joerg, R., Lenz, N., Wetz, S., &amp; Widmer, M. (2019). Ein Modell zur Analyse der Versorgungsdichte. Herleitung eines Index zur räumlichen Zugänglichkeit mithilfe von GIS und Fallstudie zur ambulanten Grundversorgung in der Schweiz.</a></li>
 </ul>
 </div>
 </div>
@@ -185,46 +183,62 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/egrueebler/fca/">https://​github.com/​egrueebler/​fca/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/egrueebler/fca/issues/">https://​github.com/​egrueebler/​fca/​issues/​</a>
-</li>
+<li><a href="https://cloud.r-project.org/package=fca" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/egrueebler/fca/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/egrueebler/fca/issues/" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
 <li><small>GPL (&gt;= 3)</small></li>
 </ul>
 </div>
-<div class="developers">
-<h2>Developers</h2>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li>Etienne Grueebler <br><small class="roles"> Author, maintainer </small>  </li>
-<li><a href="authors.html">All authors...</a></li>
+<li><a href="authors.html#citation">Citing fca</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/egrueebler/fca/actions"><img src="https://github.com/egrueebler/fca/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://app.codecov.io/gh/egrueebler/fca/branch/main"><img src="https://codecov.io/gh/egrueebler/fca/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li>Etienne Grueebler <br><small class="roles"> Author, maintainer </small>  </li>
+<li>Merlin Unterfinger <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0003-2020-2366" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li><a href="authors.html">More about authors...</a></li>
 </ul>
 </div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://CRAN.R-project.org/package=fca" class="external-link"><img src="https://www.r-pkg.org/badges/version/fca" alt="CRAN version"></a></li>
+<li><a href="https://cran.r-project.org/web/checks/check_results_fca.html" class="external-link"><img src="https://cranchecks.info/badges/worst/fca" alt="CRAN checks"></a></li>
+<li><a href="https://CRAN.R-project.org/package=fca" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/last-month/fca?color=brightgreen" alt="CRAN downloads"></a></li>
+<li><a href="https://github.com/egrueebler/fca/actions" class="external-link"><img src="https://github.com/egrueebler/fca/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://app.codecov.io/gh/egrueebler/fca/branch/main" class="external-link"><img src="https://codecov.io/gh/egrueebler/fca/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
+</ul>
 </div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Etienne Grueebler.</p>
+  <p></p>
+<p>Developed by Etienne Grueebler, Merlin Unterfinger.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -232,6 +246,8 @@
 
   
 
+
+  
 
   </body>
 </html>
